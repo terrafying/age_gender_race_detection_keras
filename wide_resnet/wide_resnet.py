@@ -38,6 +38,7 @@ class WideResNet:
         self.__race = race
         self.__training = train_branch
         self.__pretrained  = pretrained
+        self.__weights_file = weights_file
 
         if K.image_dim_ordering() == "th":
             logging.debug("image_dim_ordering = 'th'")
@@ -175,7 +176,7 @@ class WideResNet:
         '''
         if self.__model is None or len(self.__model.layers) == 32:
             self.create_model()
-        self.__model.load_weights(self.AGE_GENDER_WEIGHTS)
+        self.__model.load_weights(self.__weights_file)
         if self.__training:
             for layer in self.__model.layers:
                 layer.trainable = False
