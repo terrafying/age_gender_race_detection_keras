@@ -24,7 +24,7 @@ class WideResNet:
     For Age, Gender, Race race should be True
 
     '''
-    AGE_GENDER_WEIGHTS = os.path.join('weights', 'weights.18-4.06.hdf5')
+    AGE_GENDER_WEIGHTS = os.path.join('weights', 'weights.29-3.76_utk.hdf5')
     def __init__(self, image_size, depth=16, k=8, race = True, train_branch = False, pretrained = False):
         self._depth = depth
         self._k = k
