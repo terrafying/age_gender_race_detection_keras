@@ -24,8 +24,9 @@ class WideResNet:
     For Age, Gender, Race race should be True
 
     '''
-    AGE_GENDER_WEIGHTS = os.path.join('weights', 'weights.29-3.76_utk.hdf5')
-    def __init__(self, image_size, depth=16, k=8, race = True, train_branch = False, pretrained = False):
+    AGE_GENDER_WEIGHTS = os.path.join('weights', 'weights.28-3.73.hdf5')
+    #AGE_GENDER_WEIGHTS = os.path.join('weights', 'weights.29-3.76_utk.hdf5')
+    def __init__(self, image_size, depth=16, k=8, race = True, train_branch = False, pretrained = False, weights_file=AGE_GENDER_WEIGHTS):
         self._depth = depth
         self._k = k
         self._dropout_probability = 0
@@ -163,6 +164,7 @@ class WideResNet:
                 self.__model.load_weights(self.AGE_GENDER_WEIGHTS)
             return self.__model
         self.create_parallel_model()
+        #self.__model.load_weights('weights/model_new.h5')
         return self.__model
 
 
@@ -190,7 +192,3 @@ class WideResNet:
 
     def get_model(self):
         pass
-
-
-
-
